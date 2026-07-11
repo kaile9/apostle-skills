@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use these skills, please cite them as below."
+title: "apostle-skills: exacting Agent Skills for serious thinking, reading, research, and translation"
+abstract: >-
+  A line of seven exacting Agent Skills for serious thinking, reading,
+  research, and translation. It comprises a collaboration constitution
+  (apostle-constitutio), a pre-draft nonfiction research method
+  (apostle-article-research), a deep-reading protocol (apostle-opus-reading),
+  three method-transplant satellites carrying verbatim French and Japanese kernels
+  (apostle-opusmethodology-foucault-archaeology,
+  apostle-opusmethodology-foucault-society-defended,
+  apostle-opusmethodology-karatani-origins), and a low-variance literary and
+  academic translation workflow (apostle-translation). Published by KL9 and
+  Luciole Studio.
+type: software
+version: 1.0.1
+date-released: "2026-07-12"
+license: AGPL-3.0-or-later
+repository-code: "https://github.com/kaile9/apostle-skills"
+url: "https://github.com/kaile9/apostle-skills"
+authors:
+  - name: "KL9"
+    website: "https://github.com/kaile9"
+  - name: makico233
+    website: "https://github.com/makico233"
+  - name: "Claude (Opus 4.8/Fable 5)"
+    website: "https://github.com/claude"
+  - name: "GPT-5.6-Sol"
+  - name: "Luciole Studio (萤火社)"
+    website: "https://space.bilibili.com/1878125647"
+keywords:
+  - agent-skills
+  - large-language-models
+  - deep-reading
+  - article-research
+  - method-transplant
+  - qualitative-methodology
+  - translation
+  - human-ai-collaboration
+  - foucault
+  - karatani
+identifiers:
+  - type: url
+    value: "https://github.com/kaile9/apostle-skills"
+    description: "The public source-code repository for apostle-skills."
+  - type: url
+    value: "https://github.com/kaile9/apostle-skills/releases/tag/v1.0.1"
+    description: "The v1.0.1 release of apostle-skills."

@@ -1,0 +1,28 @@
+{
+  "name": "apostle-skills",
+  "owner": {
+    "name": "KL9 & Firefly Studio",
+    "email": "noreply@github.com"
+  },
+  "metadata": {
+    "description": "Exacting Agent Skills for serious thinking, reading, research, and translation.",
+    "version": "1.0.1"
+  },
+  "plugins": [
+    {
+      "name": "apostle-skills",
+      "description": "Deep reading, pre-draft article research, method transplant, low-variance translation, and a constitution for human-AI collaboration.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/apostle-constitutio",
+        "./skills/apostle-article-research",
+        "./skills/apostle-opus-reading",
+        "./skills/apostle-translation",
+        "./skills/apostle-opusmethodology-foucault-archaeology",
+        "./skills/apostle-opusmethodology-foucault-society-defended",
+        "./skills/apostle-opusmethodology-karatani-origins"
+      ]
+    }
+  ]
+}

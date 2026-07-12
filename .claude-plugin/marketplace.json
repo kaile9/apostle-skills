@@ -1,21 +1,22 @@
 {
   "name": "apostle-skills",
   "owner": {
-    "name": "KL9 & Firefly Studio",
+    "name": "KL9 & Luciole Studio",
     "email": "noreply@github.com"
   },
   "metadata": {
-    "description": "Exacting Agent Skills for serious thinking, reading, research, and translation.",
-    "version": "1.0.1"
+    "description": "Exacting Agent Skills for serious thinking, reading, research, translation, and prose editing.",
+    "version": "1.0.2"
   },
   "plugins": [
     {
       "name": "apostle-skills",
-      "description": "Deep reading, pre-draft article research, method transplant, low-variance translation, and a constitution for human-AI collaboration.",
+      "description": "Deep reading, pre-draft article research, method transplant, low-variance translation, prose editing, and a constitution for human-AI collaboration.",
       "source": "./",
       "strict": false,
       "skills": [
         "./skills/apostle-constitutio",
+        "./skills/apostle-antislop",
         "./skills/apostle-article-research",
         "./skills/apostle-opus-reading",
         "./skills/apostle-translation",

@@ -6,11 +6,11 @@
 
 ## English
 
-Thank you for considering a contribution. This repo has a particular temperament, and a few things up front will save us both time.
+Thanks for wanting to help. This repo is opinionated about a few things, and knowing them up front saves us both time.
 
 ### What we most want
 
-**Combat reports.** The single most valuable contribution is: *"I ran skill X on a real task, and here is exactly where it failed."* Drift into ceremony, a missed edge case, a kernel that no longer `grep`s, a section that has hardened into fill-in-the-blank — these are gold. Open an issue describing what you were doing and where it broke. If you already have the fix, open a PR.
+**Combat reports.** The most valuable thing you can bring is: *"I ran skill X on a real task, and here's exactly where it broke."* Drift into ceremony, a missed edge case, a kernel that no longer `grep`s, a section gone fill-in-the-blank — all gold. Open an issue with what you were doing and where it broke; if you already have the fix, open a PR.
 
 ### Two things to include in every report
 
@@ -36,7 +36,7 @@ Before proposing a change, it helps to know what these skills value — because 
 - **Structure with XML, deliver as Markdown.** When a passage needs explicit hierarchy — phases, roles, gates, decision branches — wrap it in lightweight XML tags (`<criterion>`, `<pitfall>`, `<mechanism>`, `<step>`) so the structure is machine-legible and the agent can find the part it needs. The prose inside stays clean, human Markdown. Scaffolding aids execution and later editing; it is not decoration, so don't tag what a plain list already makes clear.
 - **Kernels that grep.** The `opusmethodology` skills carry verbatim original-language quotations anchored by line number and MD5. If you touch a kernel, the quotation must still verify against the source.
 - **A stated wager.** Each skill names what it bets and how it can be proven wrong. Keep that honesty; don't launder a claim into confident vagueness.
-- **No ceremony.** No announcing what you're about to do, no restating what you just did, no borrowed solemnity. Say the thing.
+- **No ceremony.** No announcing what you're about to do, no restating what you just did, no borrowed solemnity. [`apostle-antislop`](./skills/apostle-antislop/) is the house broom; use it before publishing AI-assisted prose. Say the thing.
 
 ### How to propose a change
 
@@ -56,11 +56,11 @@ Contributors are credited. If an AI agent co-authored your change, the idiomatic
 
 ## 简体中文
 
-感谢你考虑参与。这个仓库有它自己的脾性，先讲清几件事，能替你我都省下时间。
+谢谢你愿意搭把手。这个仓库在几件事上有自己的主张，先说清楚，能替你我都省下时间。
 
 ### 我们最想要的
 
-**实战报告。** 最有价值的一种贡献是：*「我把 skill X 用在一个真任务上，它恰好在这里失手了。」* 滑进仪式、漏掉的边缘情形、不再能 `grep` 的内核、硬化成填空的某一节——都是金子。开一个 issue，说清你在做什么、它在哪崩了；若你已有修法，直接开 PR。
+**实战报告。** 你能带来的最有价值的东西是：*「我把 skill X 用在一个真任务上，它就在这里失手了。」* 滑进仪式、漏掉的边缘情形、`grep` 不到的内核、硬化成填空的某一节——全是金子。开个 issue 说清你在做什么、它在哪崩了；若你已有修法，直接开 PR。
 
 ### 每份报告都请带上两样
 
@@ -86,7 +86,7 @@ Contributors are credited. If an AI agent co-authored your change, the idiomatic
 - **用 XML 搭骨架，以 Markdown 交付。** 当一段内容需要显式的层级——阶段、角色、闸门、决策分叉——用轻量 XML 标签（`<criterion>`、`<pitfall>`、`<mechanism>`、`<step>`）包起来，让结构对机器可读、agent 能精准找到它要的那一块。标签内的散文保持干净的人类 Markdown。骨架是为执行与日后编辑服务的，不是装饰——一个普通列表已经讲清的东西，别去套标签。
 - **内核能 grep。** `opusmethodology` 系携带原文逐字引用，以行号与 MD5 锚定。你若动了内核，引文必须仍能对着原文核实。
 - **押注摆上台面。** 每本 skill 都说明自己押了什么、如何被证伪。守住这份诚实，别把一个论断洗成自信的含糊。
-- **不要仪式。** 不预告将做什么，不复述刚做完什么，不借来庄严。把事说出来就好。
+- **不要仪式。** 不预告将做什么，不复述刚做完什么，不借来庄严。AI 参与过的公开文字，发布前请让 [`apostle-antislop`](./skills/apostle-antislop/) 扫一遍；它是扫帚，不是香水。把事说出来就好。
 
 ### 怎么提改动
 

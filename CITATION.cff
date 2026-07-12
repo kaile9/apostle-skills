@@ -1,10 +1,11 @@
 cff-version: 1.2.0
 message: "If you use these skills, please cite them as below."
-title: "apostle-skills: exacting Agent Skills for serious thinking, reading, research, and translation"
+title: "apostle-skills: exacting Agent Skills for serious thinking, reading, research, translation, and prose editing"
 abstract: >-
-  A line of seven exacting Agent Skills for serious thinking, reading,
-  research, and translation. It comprises a collaboration constitution
-  (apostle-constitutio), a pre-draft nonfiction research method
+  A line of eight exacting Agent Skills for serious thinking, reading,
+  research, translation, and prose editing. It comprises a collaboration
+  constitution (apostle-constitutio), an English and Chinese prose editor
+  (apostle-antislop), a pre-draft nonfiction research method
   (apostle-article-research), a deep-reading protocol (apostle-opus-reading),
   three method-transplant satellites carrying verbatim French and Japanese kernels
   (apostle-opusmethodology-foucault-archaeology,
@@ -13,7 +14,7 @@ abstract: >-
   academic translation workflow (apostle-translation). Published by KL9 and
   Luciole Studio.
 type: software
-version: 1.0.1
+version: 1.0.2
 date-released: "2026-07-12"
 license: AGPL-3.0-or-later
 repository-code: "https://github.com/kaile9/apostle-skills"
@@ -36,6 +37,8 @@ keywords:
   - method-transplant
   - qualitative-methodology
   - translation
+  - prose-editing
+  - anti-slop
   - human-ai-collaboration
   - foucault
   - karatani
@@ -44,5 +47,5 @@ identifiers:
     value: "https://github.com/kaile9/apostle-skills"
     description: "The public source-code repository for apostle-skills."
   - type: url
-    value: "https://github.com/kaile9/apostle-skills/releases/tag/v1.0.1"
-    description: "The v1.0.1 release of apostle-skills."
+    value: "https://github.com/kaile9/apostle-skills/releases/tag/v1.0.2"
+    description: "The v1.0.2 release of apostle-skills."

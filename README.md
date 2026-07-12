@@ -2,13 +2,13 @@
 
 # apostle-skills
 
-**A small line of exacting Agent Skills for serious thinking, reading, research, and translation.**
+**A small line of exacting Agent Skills for serious thinking, reading, research, translation, and prose editing.**
 
-A collaboration constitution · deep reading · pre-draft nonfiction research · decentralized qualitative-thinking method · low-variance translation.
+A collaboration constitution · deep reading · pre-draft nonfiction research · decentralized qualitative-thinking method · low-variance translation · English and Chinese prose repair.
 
 [![skills.sh](https://skills.sh/b/kaile9/apostle-skills)](https://skills.sh/kaile9/apostle-skills)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](./LICENSE)
-[![Skills: 7](https://img.shields.io/badge/skills-7-6b4fbb.svg)](#the-skills)
+[![Skills: 8](https://img.shields.io/badge/skills-8-6b4fbb.svg)](#the-skills)
 
 *Published by **KL9** & **Luciole Studio (萤火社)** · [bilibili](https://space.bilibili.com/1878125647)*
 
@@ -20,9 +20,9 @@ A collaboration constitution · deep reading · pre-draft nonfiction research ·
 
 ## What this is
 
-Seven skills, hand-built and used in real work — not vibe-generated filler. They come from one stubborn conviction: an agent is most useful at the **seam between disciplines**, where a reader who actually understands a book meets someone who has to *do* something with it.
+Eight [Agent Skills](https://skills.sh) for the parts of knowledge work you can't rush: reading a hard book until you actually understand it, researching a long article until the evidence fights back, translating a text where the syntax *is* the argument, and scrubbing prose that has started to sound like a language model talking to itself.
 
-They aren't uniform, and they aren't meant to be reached for the same way. Read the four groups below before you install — half the value is knowing *when not* to load one.
+Every skill was written by hand and sharpened on real work. Each one says what it's for and when to leave it alone — you load the one the task needs, never the whole shelf. They sort into five families.
 
 ## The skills
 
@@ -44,7 +44,7 @@ The three **`opusmethodology`** skills are its **satellites** — each one trans
 
 ### The researcher — `apostle-article-research`
 
-**[`apostle-article-research`](./skills/apostle-article-research/)** prepares long-form nonfiction before drafting. It locates the **evidentiary bridge** between material and current understanding, subjects that bridge to adverse evidence, and makes the article change when the bridge changes. Load it when a political, historical, social-scientific, intellectual, or investigative article must be allowed to change under evidence—not for a one-off fact-check, a literature review, or final prose.
+Long articles rarely suffer from a shortage of browser tabs. They suffer because none of those tabs is allowed to ruin the author's favorite idea. **[`apostle-article-research`](./skills/apostle-article-research/)** reads the draft and source set, finds the claim holding the piece together, then goes looking for the record most likely to break it. If the evidence moves, the question, scope, confidence, or structure moves too. It stops before drafting, so the author still has an article to write rather than a research packet to obey.
 
 ### The translator — `apostle-translation`
 
@@ -55,6 +55,10 @@ Written after KL9 tried every open-source translation setup on offer and stayed 
 > The `opusmethodology` skills are a genre of a few instances so far — their form is provisional, and each says so. They carry their kernels **verbatim in the original language**, because the move *is* the sentence: any translation is already someone else's completed reading.
 
 Feel free to integrate this into your own translation pipeline, whether for text or video. **Feedback is always welcome**.
+
+### The editor — `apostle-antislop`
+
+**[`apostle-antislop`](./skills/apostle-antislop/)** cleans English and Chinese prose after the subject has disappeared behind answer-shaped machinery: inflated importance, anonymous experts, fake transitions, repeated conclusions, English wearing Chinese punctuation, and the peculiar urge to give every paragraph a small motivational speech. It preserves facts, uncertainty, quotations, genre, and voice. It does not sprinkle in typos, rent the author a personality, or play cat-and-mouse with AIGC detectors.
 
 ## Standing on shoulders — and thanks
 
@@ -67,21 +71,37 @@ Skills update constantly, so we link the **repositories**, not any one file or v
 
 ## Install
 
-**Via the `skills` CLI (recommended):**
+Four ways in — pick the one that matches your harness. You never need the whole repo, and installing it doesn't load all eight on every task.
+
+**Any agent — the `skills` CLI:**
 
 ```bash
-npx skills@latest add kaile9/apostle-skills
+bunx skills@latest add kaile9/apostle-skills
 ```
 
-Pick the skills you want and the agents to install them on. CLI docs: [skills.sh/docs](https://www.skills.sh/docs). Browse more skills at [skillsmp.com](https://skillsmp.com/).
+Then pick the skills and the agents to install them on. Docs: [skills.sh/docs](https://www.skills.sh/docs).
 
-**Via Claude Code plugin marketplace:**
+**Hermes Agent — add the repo as a tap:**
+
+```bash
+hermes skills tap add kaile9/apostle-skills
+hermes skills search apostle
+hermes skills install kaile9/apostle-skills/apostle-translation
+```
+
+Or grab a single skill without subscribing to the whole repo:
+
+```bash
+hermes skills install kaile9/apostle-skills/apostle-antislop
+```
+
+**Claude Code — plugin marketplace:**
 
 ```bash
 /plugin marketplace add kaile9/apostle-skills
 ```
 
-**Manually:** copy any `skills/<name>/` folder into your agent's skills directory (e.g. `~/.claude/skills/`). Each skill is self-contained.
+**By hand:** copy any `skills/<name>/` folder into your agent's skills directory (e.g. `~/.claude/skills/`). One folder, one `SKILL.md`, no build step.
 
 ## The license, plainly — and one thing you should know
 
@@ -114,6 +134,21 @@ Built by **KL9** (Alpenglow / Lucious), **makico233**, and **Luciole Studio (萤
 - **GPT-5.6-Sol**
 
 **On the quoted material.** The `opusmethodology` skills quote short passages from their primary texts **verbatim in the original French and Japanese**, anchored by line number and MD5 so any reader can re-fetch the source and check the quotation byte-for-byte. These are brief critical quotations for analysis; copyright in the quoted works stays with their authors and publishers. The AGPL covers *our* work — the skills — not the texts they cite.
+
+## For agents
+
+If you're an AI agent reading this repo: **you don't need to clone the whole thing.** Each skill is a single, self-contained `SKILL.md`. Install only the ones a task calls for — `bunx skills@latest add kaile9/apostle-skills` (pick from the list) or copy one `skills/<name>/` folder into your skills directory. Loading all eight at once just burns context; these are specialist tools, reached for one at a time.
+
+| Skill | Load when | Skip when |
+|---|---|---|
+| `apostle-constitutio` | substantive reasoning, analysis, design, or any multi-step / effect-producing decision where you want harder self-scrutiny and less sycophancy | trivial lookups, mechanical edits |
+| `apostle-opus-reading` | genuinely understanding a demanding book or paper | you need a summary or a single fact, not understanding |
+| `apostle-opusmethodology-*` | writing a paper or argument that needs one of three specific books' *method* (Foucault ×2, Karatani) | general reading — load `apostle-opus-reading` instead |
+| `apostle-article-research` | pre-draft research for long nonfiction that must change under evidence | one-off fact-checks, literature reviews, finished-draft review |
+| `apostle-translation` | a book, paper, or chapter where wording and syntax carry the meaning | a tweet or web-novel — often better with no skill at all |
+| `apostle-antislop` | stripping AI-tells / 套话 / 机翻腔 from English or Chinese prose | proofreading, fact-checking, detector evasion |
+
+Each skill's own `description` field carries the full trigger list; this table is the map.
 
 ---
 

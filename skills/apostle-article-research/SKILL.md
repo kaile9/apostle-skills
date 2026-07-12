@@ -1,7 +1,7 @@
 ---
 name: apostle-article-research
 description: >
-  Pre-draft research for long-form nonfiction. Use when a topic, draft, or source set must be allowed to change under evidence; when the work involves incompatible record systems, archival silence, formal discovery, adverse material, sensitive sources, or publication boundaries; or when political, historical, social-scientific, intellectual, or investigative material must become a draftable article movement. One-off fact-checking does not normally trigger it. Stops at the research handoff; it does not draft final prose, conduct a deep reading of a single work, produce a literature review, or assess a finished draft.
+  Pre-draft research for long-form nonfiction whose question, claim, scope, or structure must be allowed to change under evidence. Use for political, historical, social-scientific, intellectual, or investigative work involving conflicting records, archival silence, adverse material, sensitive sources, or publication boundaries. Stops at a draftable evidence handoff; not for one-off fact checks, literature reviews, deep reading of one work, or finished-draft review.
 license: AGPL-3.0-or-later
 metadata:
   hermes:

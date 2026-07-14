@@ -1,6 +1,6 @@
 ---
 name: apostle-opus-reading
-description: 对著作的深度理解。当 KL9 交来著作、长文、全集要求真正读懂，或说深度阅读、深读、细读、逐句精读、重读、隐微阅读、读懂这本书、"未写而必须"时使用；对象为承重文本（kl9 文本、哲学/理论专著、隐微写作、被低估之作）时必须加载。Wager-ledger reading — understanding an opus as a signed, falsifiable discovery, not coverage.
+description: 对著作的深度理解。当用户交来著作、长文、全集要求真正读懂，或说深度阅读、深读、细读、逐句精读、重读、隐微阅读、读懂这本书、"未写而必须"时使用；对象为承重文本（指定文本、哲学/理论专著、隐微写作、被低估之作）时必须加载。Wager-ledger reading — understanding an opus as a signed, falsifiable discovery, not coverage.
 license: AGPL-3.0-or-later
 metadata:
   hermes:

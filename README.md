@@ -108,8 +108,7 @@ Read each skill's frontmatter `description` for its complete trigger and exclusi
 
 <div align="center">
 <sub>Why “apostle”? <i>Apostolos</i> (“one sent forth”) is the actual etymology; it just so happens it also sounded cool, in that order. Amusingly enough, this word, freighted with genuine religious and political history, got picked up by a repo with nothing to do with either, simply because it sounded profound. <code>apostle-constitutio</code> §0 already puts it on the record that the sender's seat is vacant, so if you were waiting for someone official to sign off on any of this, you were always going to wait forever. Nine skills, no sender, still sent. 😎<br>
-为什么叫「apostle」？「apostolos」（「被差遣者」）是真实词源，只是它先听起来够酷，词源是后来补的理由。有点令人捧腹的是，这一个有着深刻政治与宗教历史蕴含的词语，被一个完全没有涉及这些方面的仓库，只是因为听着很深奥而使用着。<code>apostle-constitutio</code> 第 0 节早说清楚了：差遣者的座位本来就空着，所以你若在等谁来盖章，那从一开始就等不到。九本 skill，没有差遣者，照样被差遣出去。<br>
-<i>Ars longa, vita brevis.</i> 艺长，生短。</sub>
+为什么叫「apostle」？「apostolos」（「被差遣者」）是真实词源，只是它先听起来够酷，词源是后来补的理由。有点令人捧腹的是，这一个有着深刻政治与宗教历史蕴含的词语，被一个完全没有涉及这些方面的仓库，只是因为听着很深奥而使用着。<code>apostle-constitutio</code> 第 0 节早说清楚了：差遣者的座位本来就空着，所以你若在等谁来盖章，那从一开始就等不到。
 
 <sub>This footer — KL9 & Claude Sonnet 5, 2026-07-16.</sub>
 </div>

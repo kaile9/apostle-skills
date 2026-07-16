@@ -5,13 +5,13 @@
     "email": "noreply@github.com"
   },
   "metadata": {
-    "description": "Exacting Agent Skills for serious thinking, reading, research, translation, and prose editing.",
-    "version": "1.0.2"
+    "description": "Exacting Agent Skills for serious thinking, reading, research, translation, prose editing, and long-horizon work.",
+    "version": "1.0.3"
   },
   "plugins": [
     {
       "name": "apostle-skills",
-      "description": "Deep reading, pre-draft article research, method transplant, low-variance translation, prose editing, and a constitution for human-AI collaboration.",
+      "description": "Deep reading, pre-draft article research, method transplant, low-variance translation, prose editing, long-horizon artifacts and loops, and a constitution for human-AI collaboration.",
       "source": "./",
       "strict": false,
       "skills": [
@@ -20,6 +20,7 @@
         "./skills/apostle-article-research",
         "./skills/apostle-opus-reading",
         "./skills/apostle-translation",
+        "./skills/apostle-artifacts-loops",
         "./skills/apostle-opusmethodology-foucault-archaeology",
         "./skills/apostle-opusmethodology-foucault-society-defended",
         "./skills/apostle-opusmethodology-karatani-origins"

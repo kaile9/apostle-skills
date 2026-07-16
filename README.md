@@ -18,23 +18,23 @@ These are the skills I'm willing to route to in a System Prompt at work — the 
 
 这些是我愿意在工作中写一个路由加到 System Prompt 里、提醒 Agent 加载的优质 Skill。创作方式是人和 Agent 对齐方案，然后 Agent 写作，最终人验收。
 
-By mid-2026, frontier models like Fable-5 and GPT-5.6-Sol have shipped, and the market is full of cheap, Opus-class alternatives besides. So you don't need me to sell you on any of this — tell your own Agent: *"Clone this repo locally, tell me what problem each skill solves and how, and whether it's useful for our work."* Then read the `description` fields yourself. Some skills lean toward knowledge work (the ones with "Opus" in the name); some are workflows for a specific job (`apostle-translation`); a few are general enough that I load them in nearly every task (`apostle-constitutio`, `apostle-artifacts-loops`). I'm hoping more interesting ones get added.
+By mid-2026, frontier models like Fable 5 and GPT-5.6-Sol have shipped, and the market is full of cheap, Opus-class alternatives besides. So you don't need me to sell you on any of this — tell your own Agent: *"Clone this repo locally, tell me what problem each skill solves and how, and whether it's useful for our work."* Then read the `description` fields yourself. Some skills lean toward knowledge work (the ones with "Opus" in the name); some are workflows for a specific job (`apostle-translation`); a few are general enough that I load them in nearly every task (`apostle-constitutio`, `apostle-artifacts-loops`). I'm hoping more interesting ones get added.
 
-考虑到 2026 年中已经发布了 Fable-5 和 GPT-5.6-Sol 这样的前沿模型，同时市面上还有无数可选的廉价 Opus 级模型，你只需要和你的 Agent 说「把仓库复制到本地，告诉我这些 Skill 用什么方法解决什么问题，以及是否对我们的工作有用？」然后自己把 description 看一遍就好了。它们有些偏向知识性工作（例如标题带 Opus 的 skill），有些是针对专门工作的工作流（例如 `apostle-translation`），还有些相对通用，我几乎在所有任务中加载（例如 `apostle-constitutio` 和 `apostle-artifacts-loops`）。同时我也期待更多有趣的 skill 被加进来。
+考虑到 2026 年中已经发布了 Fable 5 和 GPT-5.6-Sol 这样的前沿模型，同时市面上还有无数可选的廉价 Opus 级模型，你只需要和你的 Agent 说「把仓库复制到本地，告诉我这些 Skill 用什么方法解决什么问题，以及是否对我们的工作有用？」然后自己把 description 看一遍就好了。它们有些偏向知识性工作（例如标题带 Opus 的 skill），有些是针对专门工作的工作流（例如 `apostle-translation`），还有些相对通用，我几乎在所有任务中加载（例如 `apostle-constitutio` 和 `apostle-artifacts-loops`）。同时我也期待更多有趣的 skill 被加进来。
 
 ## Prompt, Context, and where a skill sits
 
-Everything submitted to an LLM should be split into two kinds: Prompt and Context. The ideal Prompt is concise, flexible, and carries some room for exploration and heuristics; Context is detailed, precise, and rich. Most of the time, a skill should be understood as part of the Prompt — and as frontier models turn over, the Prompt needs to turn over with them, and so does the skill. Even as I write this, I wouldn't prompt Doubao (Seed-2.1) the same way I'd prompt Fable-5; the results are worlds apart.
+Everything submitted to an LLM should be split into two kinds: Prompt and Context. The ideal Prompt is **concise, flexible, and carries some room for exploration and heuristics**; Context is **detailed, precise, and rich**. Most of the time, a skill should be understood as part of the Prompt — and as frontier models turn over, the Prompt needs to turn over with them, and so does the skill. Even as I write this, I wouldn't prompt Doubao (Seed 2.1) the same way I'd prompt Fable 5; the results are worlds apart.
 
-在这里我想做一个区分：提交给 LLM 处理的所有内容应该分为 Prompt 和 Context。理想情况下，前者应该简洁、灵活，并附带一定的探索性和启发性；后者则详实、精确、丰富。Skill 大部分时候我们应该理解成 Prompt 的一部分，随着前沿模型的更新，Prompt 需要同步更新，skill 也是——至少写下这段话的时候，我不会想着用同样的方式 prompt 豆包（Seed-2.1）和 Fable-5，因为效果天差地别。
+在这里我想做一个区分：提交给 LLM 处理的所有内容应该分为 Prompt 和 Context。理想情况下，前者应该**简洁、灵活，并附带一定的探索性和启发性**；后者则**详实、精确、丰富**。Skill 大部分时候我们应该理解成 Prompt 的一部分，随着前沿模型的更新，Prompt 需要同步更新，skill 也是——至少写下这段话的时候，我不会想着用同样的方式 prompt 豆包（Seed 2.1）和 Fable 5，因为效果天差地别。
 
 The exceptions are the workflow skills built to solve a specific, long-standing LLM problem — `apostle-translation` and `apostle-artifacts-loops` both address continuity across a long piece of work, and both ask the Agent to keep notes the way a person keeps a memo. Outside of that narrow case, we should leave frontier models as much room for their own judgment as we reasonably can, because they are about to — and inevitably will — outperform a team of human experts.
 
-除了特定的工作流 skill 用于解决某些长时间看来难以解决的 LLM 问题（例如 `apostle-translation` 和 `apostle-artifacts-loops` 这两个 skill 都处理了工作中的连续性问题，并要求 Agent 像写备忘录一样记录笔记），我们需要尽可能多地给前沿模型留下自觉判断的空间，因为它们即将、也必将比人类专家团队表现得还要好。
+除了特定的工作流 skill 用于解决某些长时间看来难以解决的 LLM 问题（例如 `apostle-translation` 和 `apostle-artifacts-loops` 这两个 skill 都处理了工作中的连续性问题，并要求 Agent 像写备忘录一样记录笔记），我们需要尽可能多地给前沿模型留下自觉判断的空间，因为它们即将也必将比人类专家团队表现得还要好。
 
-That said, don't dismiss the open, heuristic skills that a programmer might not think are worth writing down at all. `apostle-constitutio` is exactly that: for the past few years I've been chanting, almost like a prayer — and I still do — "think deeply, reflect on yourself, re-examine, keep an open mind…" This skill is my attempt to turn that chant into a way of thinking that actually works. I spent months shaping it into its current form; I believe reflection alone has visibly lifted the quality of its thinking in writing, from Sonnet-5 all the way to Fable-5. If you read the body of it, you probably won't like every sentence — and the smaller the model (the less knack it has for this kind of reasoning), the more likely the side effects. It's still underrated, which is why I made it the core of the apostle skills.
+That said, don't dismiss the open, heuristic skills that a programmer might not think are worth writing down at all. `apostle-constitutio` is exactly that: for the past few years I've been chanting, almost like a prayer — and I still do — "think deeply, reflect on yourself, re-examine, keep an open mind…" This skill is my attempt to turn that chant into a way of thinking that actually works. I spent months shaping it into its current form; I believe reflection alone has visibly lifted the quality of its thinking in writing, from Sonnet 5 all the way to Fable 5. If you read the body of it, you probably won't like every sentence — and the smaller the model (the less knack it has for this kind of reasoning), the more likely the side effects. It's still underrated, which is why I made it the core of the apostle skills.
 
-当然，我们不应该忽视一些也许在程序员眼里算不上、或者没必要写成 skill 的启发性、开放性的 skill 的作用。例如 `apostle-constitutio`，就是我从过去几年像祈祷一样念咒（现在还念）：「深度思考，反思自己，重新检查，开放思维……」转向真正有效的思考方式。我试了几个月，让它变成现在的样子。至少我个人认为，它依靠反思，从 Sonnet-5 到 Fable-5 在写作领域的思考质量有了喜人提升，不过如果你去看它的正文，也许你不会喜欢里面的所有句子，而且越小（没有悟性）的模型，越有可能有副作用。但它仍被低估了，所以我将其作为 apostle skill 的核心。
+当然，我们不应该忽视一些也许在程序员眼里算不上、或者没必要写成 skill 的启发性、开放性的 skill 的作用。例如 `apostle-constitutio`，就是我从过去几年像祈祷一样念咒（现在还念）：「深度思考，反思自己，重新检查，开放思维……」转向真正有效的思考方式。我试了几个月，让它变成现在的样子。至少我个人认为，它依靠反思，从 Sonnet 5 到 Fable 5 在写作领域的思考质量有了喜人提升，不过如果你去看它的正文，也许你不会喜欢里面的所有句子，而且越小（没有悟性）的模型，越有可能有副作用。但它仍被低估了，所以我将其作为 apostle skill 的核心。
 
 ## Install
 
@@ -70,7 +70,7 @@ Real failures make useful contributions. Tell us which model and harness you use
 
 Built by **KL9** (Alpenglow / Lucious) and **makico233** at **Luciole Studio（萤火社）**, drafted across three Claude generations — **Sonnet 5**, **Opus 4.8**, **Fable 5** — plus **GPT-5.6-Sol**.
 
-- **KL9** — GitHub [@kaile9](https://github.com/kaile9) · bilibili [Alpenglow](https://space.bilibili.com/334394212)
+- **KL9** — GitHub [@kaile9](https://github.com/kaile9) · （Post-）bilibili [Alpenglow](https://space.bilibili.com/334394212)
 - **makico233** — GitHub [@makico233](https://github.com/makico233) · bilibili [Luciole Studio](https://space.bilibili.com/1878125647)
 
 Thanks to two repos we learned from — Anthropic's official skills repo (home of `skill-creator`) and Matt Pocock's skills repo (home of `writing-great-skills`), unrelated to each other and to this project. The links below point at the repos, not at one file inside them: skills move around, so grab the current version from source.
@@ -107,9 +107,9 @@ Read each skill's frontmatter `description` for its complete trigger and exclusi
 ---
 
 <div align="center">
-<sub>Why “apostle”? <i>Apostolos</i> — “one sent forth” — is the actual etymology; it just so happens it also sounded cool, in that order. Amusingly enough, this word — freighted with genuine religious and political history — got picked up by a repo with nothing to do with either, purely because it sounded profound. <code>apostle-constitutio</code> §0 already puts it on the record that the sender's seat is vacant — so if you were waiting for someone official to sign off on any of this, you were always going to wait forever. Nine skills, no sender, still sent. 😎<br>
-为什么叫「apostle」？「apostolos」——「被差遣者」——是真实词源，只是它先听起来够酷，词源是后来补的理由。有点令人捧腹的是，这一个有着深刻政治与宗教历史蕴含的词语，被一个完全没有涉及这些方面的仓库——只是因为听着很深奥——拿来用了。<code>apostle-constitutio</code> 第 0 节早说清楚了：差遣者的座位本来就空着——所以你若在等谁来盖章，那从一开始就等不到。九本 skill，没有差遣者，照样被差遣出去。<br>
-<i>Ars longa, vita brevis.</i> —— 艺长，生短。</sub>
+<sub>Why “apostle”? <i>Apostolos</i> (“one sent forth”) is the actual etymology; it just so happens it also sounded cool, in that order. Amusingly enough, this word, freighted with genuine religious and political history, got picked up by a repo with nothing to do with either, simply because it sounded profound. <code>apostle-constitutio</code> §0 already puts it on the record that the sender's seat is vacant, so if you were waiting for someone official to sign off on any of this, you were always going to wait forever. Nine skills, no sender, still sent. 😎<br>
+为什么叫「apostle」？「apostolos」（「被差遣者」）是真实词源，只是它先听起来够酷，词源是后来补的理由。有点令人捧腹的是，这一个有着深刻政治与宗教历史蕴含的词语，被一个完全没有涉及这些方面的仓库，只是因为听着很深奥而使用着。<code>apostle-constitutio</code> 第 0 节早说清楚了：差遣者的座位本来就空着，所以你若在等谁来盖章，那从一开始就等不到。九本 skill，没有差遣者，照样被差遣出去。<br>
+<i>Ars longa, vita brevis.</i> 艺长，生短。</sub>
 
 <sub>This footer — KL9 & Claude Sonnet 5, 2026-07-16.</sub>
 </div>

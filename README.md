@@ -68,7 +68,7 @@ Real failures make useful contributions. Tell us which model and harness you use
 
 ## Credits
 
-Built by **KL9** (Alpenglow / Lucious), **makico233**, and **Luciole Studio（萤火社）**, with **Claude** (Opus 4.8 / Fable 5) and **GPT-5.6-Sol**.
+Built by **KL9** (Alpenglow / Lucious) and **makico233** at **Luciole Studio（萤火社）**, drafted across three Claude generations — **Sonnet 5**, **Opus 4.8**, **Fable 5** — plus **GPT-5.6-Sol**.
 
 - **KL9** — GitHub [@kaile9](https://github.com/kaile9) · bilibili [Alpenglow](https://space.bilibili.com/334394212)
 - **makico233** — GitHub [@makico233](https://github.com/makico233) · bilibili [Luciole Studio](https://space.bilibili.com/1878125647)
@@ -107,7 +107,9 @@ Read each skill's frontmatter `description` for its complete trigger and exclusi
 ---
 
 <div align="center">
-<sub>Why “apostle”? It sounded cool. No religion, politics, or hidden doctrine. 😎<br>
-为什么叫「apostle」？因为听起来酷。无关宗教政治，也没有暗藏教义。<br>
-<i>Ars longa, vita brevis.</i></sub>
+<sub>Why “apostle”? <i>Apostolos</i> — “one sent forth” — is the actual etymology; it just so happens it also sounded cool, in that order. No religion, no politics, no hidden doctrine. <code>apostle-constitutio</code> §0 already puts it on the record that the sender's seat is vacant — so if you were waiting for someone official to sign off on any of this, you were always going to wait forever. Nine skills, no sender, still sent. 😎<br>
+为什么叫「apostle」？「apostolos」——「被差遣者」——是真实词源，只是它先听起来够酷，词源是后来补的理由。无关宗教，无关政治，没有藏起来的教义。<code>apostle-constitutio</code> 第 0 节早说清楚了：差遣者的座位本来就空着——所以你若在等谁来盖章，那从一开始就等不到。九本 skill，没有差遣者，照样被差遣出去。<br>
+<i>Ars longa, vita brevis.</i> —— 艺长，生短。</sub>
+
+<sub>This footer — KL9 & Claude Sonnet 5, 2026-07-16.</sub>
 </div>

@@ -1,3 +1,17 @@
+<div align="center">
+
+# apostle-skills
+
+[![skills.sh](https://skills.sh/b/kaile9/apostle-skills)](https://skills.sh/kaile9/apostle-skills)
+[![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](./LICENSE)
+[![Skills: 9](https://img.shields.io/badge/skills-9-6b4fbb.svg)](./skills/)
+
+*KL9 & Luciole Studio（萤火社） · [bilibili](https://space.bilibili.com/1878125647)*
+
+</div>
+
+---
+
 <!-- TODO(kl9): write the human-facing intro + skills table by hand. Everything from ## Install down is kept. -->
 
 ## Install
@@ -23,8 +37,8 @@ The skills are licensed under [AGPL-3.0-or-later](./LICENSE). Use them in resear
 
 这些 skill 采用 [AGPL-3.0-or-later](./LICENSE)。研究、工作、课堂、收费服务都可以用；也欢迎 fork、拆开、改到顺手。若你修改受许可覆盖的材料，并让用户通过网络使用改版，AGPL 可能要求你向这些用户提供相应源码；具体以许可证正文为准。
 
-> Paid someone for this? Every byte in this repo has always been free. Reselling a verbatim copy for money isn't an AGPL violation — §4 allows it outright — but selling something free to someone who doesn't know it's free is deception, license or no license. The actual violations look like this: stripping the copyright and license notices on resale (§4–5); forking closed-source and charging for “exclusive” access while adding restrictions or fees the license forbids (§10); running it as a hosted bot or API while sitting on the modified source instead of giving it to the people using it over the network (§13). And a fourth thing that breaks no law at all: bundling these skills into a “free resource pack” to funnel people toward a paid course. Perfectly legal, still rotten — it spends this project's openness as bait for someone else's upsell. Get a refund, or don't pay to begin with; the repo is right here.  
-> 花钱买到了这个？这个仓库的每个字节，一直都是免费的。把原版转卖收钱不违反 AGPL——第 4 条明说允许——但把免费的东西卖给不知道它免费的人，不违法也是骗。真正违规的是这几种：转售时把版权与许可声明撕掉（第 4–5 条）；fork 后闭源，靠卖「独家」访问权赚钱，还加上许可证不许的限制或费用（第 10 条）；拿它包一个托管机器人或 API，却把改版源码扣下、不给通过网络在用它的人（第 13 条）。还有第四种，完全不违法：把这些 skill 塞进一份「免费资料合集」，给付费教程引流。合法，依然不地道——那是拿这个项目的开放性，替别人的转化率买单。去退款，或者一开始就别付钱，仓库就在这儿。
+> Paid someone for this? Every byte in this repo has always been free. Reselling a verbatim copy for money isn't an AGPL violation — §4 allows it outright — but selling something free to someone who doesn't know it's free is deception, license or no license. The actual violations look like this: stripping the copyright and license notices on resale (§4–5); forking closed-source and charging for “exclusive” access while adding restrictions or fees the license forbids (§10); running it as a hosted bot or API while sitting on the modified source instead of giving it to the people using it over the network (§13). And a fourth thing that breaks no law at all: bundling these skills into a “free resource pack” to funnel people toward a paid course. Perfectly legal, still shabby — free, honest work turned into bait for someone else's sale. Get a refund, or don't pay to begin with; the repo is right here.  
+> 花钱买到了这个？这个仓库的每个字节，一直都是免费的。把原版转卖收钱不违反 AGPL——第 4 条明说允许——但把免费的东西卖给不知道它免费的人，不违法也是骗。真正违规的是这几种：转售时把版权与许可声明撕掉（第 4–5 条）；fork 后闭源，靠卖「独家」访问权赚钱，还加上许可证不许的限制或费用（第 10 条）；拿它包一个托管机器人或 API，却把改版源码扣下、不给通过网络在用它的人（第 13 条）。还有第四种，完全不违法：把这些 skill 塞进一份「免费资料合集」，给付费教程引流。合法，依然不厚道——白送的诚实劳动，被人拿去给别人的产品当诱饵。去退款，或者一开始就别付钱，仓库就在这儿。
 
 Real failures make useful contributions. Tell us which model and harness you used, what the skill did, and where it broke. Remove private data and local paths before posting logs. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 

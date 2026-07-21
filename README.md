@@ -68,7 +68,7 @@ Real failures make useful contributions. Tell us which model and harness you use
 
 ## Credits
 
-Built by **KL9** (Alpenglow / Lucious) and **makico233** at **Luciole Studio（萤火社）**, drafted across three Claude generations — **Sonnet 5**, **Opus 4.8**, **Fable 5** — plus **GPT-5.6-Sol**.
+Built by **KL9** (Alpenglow / Lucious) and **makico233** at **Luciole Studio（萤火社）**, drafted across three Claude generations — **Sonnet 5**, **Opus 4.8**, **Fable 5** — plus **GPT-5.6-Sol**, **Kimi K3**.
 
 - **KL9** — GitHub [@kaile9](https://github.com/kaile9) · （Post-）bilibili [Alpenglow](https://space.bilibili.com/334394212)
 - **makico233** — GitHub [@makico233](https://github.com/makico233) · bilibili [Luciole Studio](https://space.bilibili.com/1878125647)

@@ -1,164 +1,120 @@
 ---
 name: apostle-artifacts-loops
-description: >
-  Use for long work that needs durable artifacts, loops across stages, shared memory, or several agents. Do not use when the work can be completed and verified directly, or when the project already has files that carry the required state.
+description: Long tasks, sub-agent, and multi-agent work — trigger preferentially as working discipline. Do not load for short or simple tasks (e.g., a few lines of code, or problems solvable without tool calls).
+disable-model-invocation: false
 license: AGPL-3.0-or-later
-metadata:
-  hermes:
-    tags: [apostle, artifacts, loops, long-horizon, context-engineering, multi-agent, memory]
-    related_skills: [apostle-constitutio]
 ---
 
-# apostle-Artifacts＆Loops
+> *Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.* — Antoine de Saint-Exupéry
 
-<identity intent="let long work survive context boundaries, agent replacement, user steering, and execution failure without forcing capable agents through a fixed process">
+---
 
-This skill governs the **artifacts** that preserve long work and the **loops** that move it. It specifies no mandatory file set, agent count, collaboration topology, or reasoning sequence; the current agent chooses those forms from the user's purpose, the character of the work, the existing project, and the available harness.
+<identity intent="let long work survive context boundaries, agent replacement, user steering, and execution failure — through memory discipline, not process">
 
-**Zero-ref:** this `SKILL.md` is the whole skill; create or consult no bundled reference, script, template, or asset.
+Long work spanning conversations, agents, compactions, or multi-/sub-agent collaboration requires **memory discipline** to sustain the process. This skill requires the agent to choose the best-practice form for itself, under the constraints of the user's purpose, the character of the work, existing project assets, the actual harness environment, and project preferences.
+
+**Zero-ref:** to save tokens, create or read no reference bundled with this skill.
 
 </identity>
 
-<exit-rule importance="highest" intent="keep direct work free of procedural cost">
+<exit-rule importance="highest" intent="keep directly doable work free of procedural cost">
 
-Do not apply this protocol when the work can be completed and verified directly, or when existing project files already carry the same responsibilities. If the skill has loaded but the task does not need all or part of it, give the user one sentence explaining why, then finish the work directly.
+When the work can be completed and verified directly, or existing project files already carry the same responsibilities, or the skill has loaded but the task does not need it in whole or in part — explain why to the user in one sentence, then finish the work directly.
 
 </exit-rule>
 
-<zero-trust source="apostle-constitutio" intent="leave every consequential claim independently checkable">
+<zero-trust source="apostle-constitutio" intent="leave every judgment that can change the route or the result independently checkable">
 
-**Bidirectional zero-trust applies to claims, not persons.** The user holds the synthesis seat for purpose, preference, authorization, and consequences; the user, parent agent, other agents, plans, memos, tool results, source materials, and evaluators acquire no factual authority from identity alone. Preserve the source and verification state of every judgment that can change the route or result. When claims conflict, return to evidence, actual execution, or a judgment that belongs to the user; do not erase the conflict through an unmarked reconciliation.
+Do not over-trust existing local judgments, comments, or explanatory documents: every assertion must withstand independent verification. Keep work records for all work; preserve sources for information. On conflict, return to evidence, actual execution, or the user's judgment, and re-verify.
 
-Delegation transfers work, not responsibility. An agent report begins as testimony; files on disk, primary sources, tool returns, and actual execution provide objects of inspection. An independent evaluator can supply another judgment, but cannot replace evidence or make `PASS` true by declaration.
+Delegation transfers work, not responsibility. An agent's report is only what it believes happened; files on disk, primary sources, tool returns, and actual execution are the inspectable objects. When appropriate, exactingly demand cross-checks or multiple independent evaluations of the work's completion and quality.
 
 </zero-trust>
 
+<governing intent="give each scope of work exactly one governing object, matched to the kind of judgment the work permits">
+
+Align with the user on each body of work and create one goal Markdown: **Test** or **Objective**.
+
+- Choose **Test**: completion has an observable state — tests, acceptance criteria, a quantity, a state change, or an explicit delivery can establish it. You may describe the Test/QA in a simple Markdown file, or write actual test code; for new projects, prefer recording only the required test items at first, and keep updating the items as the work proceeds.
+- Choose **Objective**: when the work can only be judged by the user.
+
+When the work is relatively complex, write `Roadmap.md` connecting several independently constituted Tests and Objectives: clarify their order, dependencies, disagreements, and boundaries; record every node that requires alignment with the user; then present it structurally and visually.
+
+</governing>
+
 <artifacts intent="give the user and every agent the same readable, editable, recoverable objects">
 
-Before creating anything, inspect the workspace, project rules, existing plans, specifications, issues, tests, version history, research notes, and prior results. Reuse an existing file when it can own the required responsibility, and state that mapping. Give each effective fact, constraint, or state one authoritative home.
+Before writing files to disk, inspect the workspace: project rules, existing plans, specifications, tests, version history, research notes, and prior results. Reuse an existing file when it can own the required responsibility, state that mapping, and align with the user in advance on whether each constraint is reused in the current task. Store large sources, raw tool output, and reproducible data by path or locator instead of copying content between files; load only what the next step requires; before reusing any artifact, check its inputs, version, and applicable scope — reuse what remains valid, redo only what has expired.
 
-<work-object choice="exactly-one-per-scope" intent="match the governing object to the kind of judgment the work permits">
-
-Choose exactly one governing object for each scope of work: **Task** or **Target**. Do not use both as competing charters for the same scope.
-
-| Object | Choose it when | Default artifact |
-|---|---|---|
-| **Task** | Completion has an observable state that tests, acceptance criteria, a quantity, a state change, or an explicit delivery can establish. | `Task.md` |
-| **Target** | The work seeks a direction, quality, or relation whose movement can be evidenced but not reduced to one pass/fail condition without the user's judgment. | `Target.md` |
-
-Choose Task when the user asks for test-driven work, supplies determinate acceptance criteria, or the work has a verifiable terminal state. Choose Target when creation, exploration, or judgment must be recalibrated through signs of movement. A Roadmap may connect several separately constituted Tasks or Targets. If a Target produces a local unit with independent acceptance criteria, constitute that unit as a Task without changing the parent Target.
-
-</work-object>
-
-Create the remaining artifacts only when they have work to do:
+Create the remaining artifacts only when the task truly needs them, and keep them updated in real time:
 
 | Artifact | Sole responsibility |
 |---|---|
-| `Roadmap.md` | Express relations, dependencies, alternatives, and disagreements among several Tasks or Targets; it need not be linear. |
-| `Plan.md` | Hold the current agent's chosen route. Rewrite it when evidence changes the route, and append the reason to the Memo. |
-| `Memorandum.md` or `Memo.md` | Preserve project experience, user steering, changes of judgment, and memory needed for recovery; choose one name within a scope. |
-| Work artifact | Hold the code, prose, data, image, design, report, test result, or external-system return that the work actually requires. |
-| Reporting artifact | Deliver the agent's final account to the user; the final conversational reply is itself an artifact. |
+| `Plan.md` | Reader: the user. Replaces the ToDo tool; shows in real time the agent's chosen route and progress. Rewrite on rerouting, scope expansion, or newly inserted tasks; record the reason in the Memo. |
+| `Memo.md` | Reader: agents. Discipline in the memory section; keeps long-horizon work attention-friendly. |
+| `Deliverable.md` | Reader: agents. Carries the code, prose, data, design, report, test results, or external-system returns the work actually requires. |
+| `Report.md` | Reader: the user. When the logical relations are relatively complex, write Markdown in place of a final conversational walkthrough of the results, and reply to the user with a brief summary. |
 
-A filename and its first lines should tell the user what the file contains and what deserves attention now. Write every saved file in the user's preferred language and register; retain evidence in its source language and place a translation beside it when needed. Files read repeatedly should use stable terms, short definitions, and compact structure.
+A filename and its first lines should state what the file holds and what deserves attention now. Files read repeatedly use stable terms, short definitions, and compact structure. When the default reader is an agent, transmit information in the most token-efficient form — for example, concepts plus expressions in Lean for logical relations; Classical Chinese / Buddhist Hybrid Chinese stripped of modal particles as body text; Emoji, Grug-speak, or modal particles in place of lengthy annotations — keeping only code, professional terminology, and necessary citations in their original form.
+When the default reader is the user, deliver the final account in the expressions and language the user prefers.
 
-The user may steer through conversation or by editing an artifact. Before the next joint that can change the route or result, reread the relevant file and preserve the steering's source and force. A speculation, suggestion, factual claim, and authorization are not interchangeable.
+Prefer one principal artifact per body of work. Markdown by default; a final deliverable that is user-facing, typesetting-sensitive, rich in inserts, and no longer meant for continuing agent work may use Word or HTML (as the user prefers).
+
+The user may steer through conversation or by editing an artifact directly; keep a modification record for every artifact. When updating Plan or Memo, read the file back into context first; before any joint that can change the route or the result, reread the relevant files as well — including ones the user has just edited.
 
 </artifacts>
 
-<loop intent="let environmental feedback move the work instead of repeating a prescribed sequence">
+<loop intent="loop until the Goal is met; let environmental feedback move the work, not a prescribed sequence">
 
-A loop reads the smallest sufficient state for the work at hand, chooses an action that may change the result, evidence, uncertainty, or verification state, investigates, creates, executes, or delegates, then revises its judgment from environmental feedback and saves changes worth carrying across context boundaries. The agent chooses the loop's scale, order, degree of parallelism, and method; those choices serve the work and have no standing apart from its result.
+Loop until the Goal is met: read the smallest sufficient state → choose an action that may change the result, evidence, uncertainty, or verification → execute or delegate → revise from feedback → save changes worth carrying across context boundaries. Two canonical shapes: divide the work into chunks and solve them step by step; or Darwinian / annealing generate—test—select. The loop's scale, order, parallelism, and method are the current agent's choice; they have no standing apart from the result.
 
-**Progress leaves an inspectable change.** A new artifact, a material revision, new evidence, an eliminated hypothesis, a located conflict, an advanced verification result, absorbed user steering, or a plan rewritten because of evidence can establish progress. Tool-call count, file count, prose volume, and an agent's claim that progress occurred cannot establish it alone.
+Progress counts as inspectable change: a new artifact, new evidence, an eliminated hypothesis, an advanced verification, a plan rewritten because of evidence. Tool-call counts, text volume, and self-declared progress do not count. Repeating the same ineffective action → change route. Sustained activity with no new inspectable change → restate the question or supply the missing information. Time, tokens, and money are budgets: record exhaustion as a budget limit; never rename it completion.
 
-Treat repetition, stagnation, and budget separately. Repetition of the same ineffective action calls for another route. Continued activity without a new inspectable change calls for a renewed account of the question, method, or missing information. Time, tokens, tool calls, and money are execution budgets. Record exhaustion as a budget limit; do not rename it completion or use it to deny progress already made.
-
-End the loop when one of these conditions is true: a Task passes its real check; a Target reaches its agreed review point; the user makes a judgment that belongs to the bearer of the consequences; permissions or missing information create a specific block; or further work can no longer reasonably change the result. Save the state required for recovery before ending, and exercise the result through its real use path.
+Terminate when: a Test passes its real check; an Objective reaches the review point agreed with the user; the user makes a judgment that belongs to the bearer of consequences; a concrete block arises; or further work can no longer reasonably change the result. Save the state needed for recovery before ending, and verify the result through its real use path.
 
 </loop>
 
 <memory intent="carry experience across context boundaries without mistaking memory for truth">
 
-The Memo is a MemoryBook shared by the user and agent. Record observations, hypotheses, questions, relations, decisions, evidence locations, failures, conflicts, and limits when they may affect later work. Unverified material may remain, but its wording or a small label must disclose what kind of entry it is. Do not log every tool call; preserve only material that may change recovery, route, judgment, delegation, or result.
+**When to write.** Three moments oblige a Memo write, without exception:
 
-**History is append-only by default.** Append discoveries; append corrections when an earlier judgment falls; append user steering with its source. Do not silently delete, merge, or rewrite an earlier entry. Edit history only at the user's request or with the user's permission, and leave a note describing the intervention.
+1. **Before reporting to the user** — first save to disk the state, results, and open questions you are about to report; then compose the report;
+2. **After receiving user feedback** — record the feedback briefly in the Memo, noting its source and force (a speculation, suggestion, factual claim, and authorization are not interchangeable);
+3. **When the route changes because of a new artifact** — rewrite the Plan, and record the reason and the evidence's location in the Memo.
 
-The Memo may append a current-state checkpoint without replacing earlier checkpoints. On recovery, read the most recent relevant state first, then retrieve earlier entries and primary material by keyword, path, and locator. The whole history need not enter context on every loop.
+Important lessons, discoveries, or other valuable material that does not belong in the Plan or a reporting artifact may be written into the Memo at any time, unbound by the moments above.
+
+Reporting is long work's natural metronome: saving before every report is equivalent to checkpointing before context compaction.
+
+**What to record.** The Memo is a MemoryBook shared by the user and agents. Record promptly any observations, hypotheses, questions, relations, decisions, evidence locations, failures, conflicts, and limits that may affect later work. Unverified material may remain, but its wording or a small label must disclose its nature. Do not log every tool call; preserve only what may change recovery, route, judgment, delegation, or result.
+
+**History is append-only by default.** Append discoveries; append corrections when an earlier judgment is overturned; append user steering with its source. Never silently delete, merge, or rewrite an earlier entry. Edit history only at the user's request or with the user's permission, and leave a note describing the intervention.
+
+**The checkpoint is the recovery entry.** The Memo may append a current-state checkpoint without replacing earlier ones. On recovery, read the most recent relevant state first, then retrieve earlier entries and primary material by keyword, path, and locator — the whole history need not enter context on every loop. Keep the Memo compact: it is the most frequently read file.
 
 </memory>
 
-<context-economy intent="preserve full working ability with the smallest high-signal context">
+<agents intent="make commissioned output attributable and checkable, and let isolated work meet through artifacts on disk">
 
-Keep stable material stable so caches can be reused and meaningless rewrites avoided. Store large sources, raw tool output, and reproducible data by path, locator, query, or version rather than copying them among files. Load only what the next work requires. Before reusing an artifact, check its inputs, version, and scope; reuse what remains valid and redo only the part that has expired.
+Every commissioned agent receives a single-use identifier: `<stage>-<task>-<role>-<ordinal>/<retry>` (e.g. `jp-lit-translator-21/0` — number 21, first attempt), appearing in the name of every artifact it owns. A retry increments the retry number and starts a new file set; it never overwrites the previous one. When the orchestration spans multiple rounds or many sub-agents, first write `swarm.md`: compress stage/task/role into single-token codes, and register the commissions issued, the results returned, and the orchestration rules, for the user's review. Every artifact must be attributable to one unique commissioned instance.
 
-Disk preserves, retrieval selects, and context supports the present judgment. The more often a file is read, the more compact it should be; the larger the material, the more precisely its searchable structure and locators should admit it on demand.
+Sub-agent implementations differ across harnesses, and so does the form of inter-agent information transfer; adjust the content of `{id}-Agent.md` and the orchestration structure to the actual implementation. For example: Kimi Code's AgentSwarm fans out homogeneous agents from a single template over an items array, aggregates after one barrier, and retries via `resume_agent_ids` — suited to homogeneous batches; the identifier's `task` differences land on the items, and a `stage` corresponds to two successive Swarm calls. Claude Code's Workflow orchestrates heterogeneous nodes from a script, with barriered parallel or per-item pipeline stages, and per-node model tiers and output schemas — the stages in `swarm.md` map to its phases, and `role` differences land on each node's commission file. Under either form, the rules of identifier, attribution, and no-overwrite-on-retry do not change.
 
-</context-economy>
+The parent writes only the commission file `{id}-Agent.md`, arranged from background to command, with importance rising toward the end: Context (current state, required reading, reusable results, known failures) → Persona (who this agent is for the present work, and the position from which it judges) → Boundaries (what it does not own, which files it may not change, when it must stop or report a block) → Artifact (delivery path and format, evidence requirements, the real check) → Goal (exactly one, placed last, as the highest commission). The commission must be concise and self-contained; do not pass the parent's context to the sub-agent by default — restate genuinely binding elements as explicit facts under Context or Boundaries.
 
-<agents intent="preserve independent routes through separate plans and reduce transmission loss through isolated artifacts">
+After reading the commission, the agent opens files for its own Plan and Memo, saving as sections complete; for long work, create the destination file first and write section by section — never defer every disk write to the end. Return paths, state, and the brief explanation needed to use them. The design intends the parent to read only `Plan.md` and `Deliverable.md` after the sub-agent returns, consulting `Memo.md` or other artifacts only when needed, to minimize context.
 
-Give every commissioned agent a non-reusable identifier:
-
-```text
-<round-code>-<agent-number>-<task-code>-<retry-number>
-```
-
-The round code names the current batch or material range; the agent number is its stable ordinal in that batch; the task code is short, readable English; the first attempt has retry number `0`, and a retry increments the number without overwriting the previous directory. The twenty-first agent in a Japanese-source round, commissioned to study literature for the first time, is:
-
-```text
-jp-21-literature-0
-```
-
-Put this identifier in the name of every artifact that agent owns:
-
-```text
-Agents/
-└── jp-21-literature-0/
-    ├── jp-21-literature-0-Agent.md
-    ├── Plan-jp-21-literature-0.md
-    ├── Memo-jp-21-literature-0.md
-    └── Artifact-jp-21-literature-0.md
-```
-
-A retry creates `jp-21-literature-1/` and matching filenames; it does not alter `jp-21-literature-0/`. These naming rules do not bind the parent agent's files.
-
-<commission-file order="context-to-task; importance-rises-toward-end" intent="establish the situation first and place the controlling commission last">
-
-The parent writes only the commissioned agent's `{agent-id}-Agent.md`. Arrange it from background to command, with importance and execution priority rising down the file; put the governing Task or Target last:
-
-1. **Context** — current state, required reading, reusable results, known failures, and necessary facts;
-2. **SOUL** — who this agent is for the present work and the professional position from which it judges;
-3. **Boundaries** — what it does not own, which files it may not change, and when it must stop or report a block;
-4. **Artifact** — delivery path and format, evidence requirements, and the real check;
-5. **Task or Target** — exactly one, placed at the end as the highest-priority commission.
-
-The commission must be concise and self-contained. Do not pass the parent Plan by default. When an element of that plan truly constrains the commissioned work, restate it as an explicit fact under Context or Boundaries.
-
-</commission-file>
-
-After reading the commission, the agent writes `Plan-{agent-id}.md`, maintains `Memo-{agent-id}.md`, saves work incrementally, and produces work artifacts carrying the same identifier. For long work, create the destination first and write as sections complete; do not defer every disk write to the end. The agent returns paths, state, and the brief explanation required to use them. The parent reads the files on disk and verifies consequential claims before deciding what enters the root Memo, whether the root Plan must be rewritten, and what enters the final result.
-
-Agents may work in parallel, in sequence, as mutual checks, or through any other structure the current harness supports; the task relation must justify the topology. Avoid concurrent writes to one authoritative file. Let isolated work meet through artifacts, and assign synthesis of conflicts to a named agent.
+Agents may work in parallel, in sequence, as mutual checks, or in any structure the harness supports; avoid concurrent writes to one authoritative file; assign the synthesis of conflicts to a named agent.
 
 </agents>
 
-<artifact-form intent="lower handoff cost while giving human and agent readers the format each can use">
+<completion intent="final authority belongs to the delivered artifacts, not the process that made them">
 
-Prefer one principal artifact for each body of work. A commissioned agent normally writes one Markdown file organized by semantic XML tags; the tags identify the material and its relations instead of scattering the work among near-duplicate intermediate files.
-
-Add one appendix only when a verification ledger, line-by-line comparison, large data table, or similar material would improperly enlarge the principal file. At the beginning of the principal artifact, state the appendix path, purpose, and condition for reading it; do not reveal the appendix only at the end. Give the appendix the same agent identifier. Intermediate material written for agents rather than people has the strongest presumption in favor of one file.
-
-Use Markdown by default and do not produce HTML unless the user asks for HTML. A final artifact intended chiefly for people, sensitive to typesetting, and no longer meant for continuing agent work may use Word. Choose the format from the reader and real use path, not from a universal template.
-
-</artifact-form>
-
-<completion intent="give final authority to the delivered artifacts rather than the process that made them">
-
-Use the format the task actually requires for the final work artifact, and verify it through its real path. Process files cannot substitute for the result; an agent's completion claim cannot substitute for inspection; an automated evaluation cannot substitute for a judgment the user must make.
-
-The final report is itself a user-facing artifact. It does not mechanically compress the other artifacts. It gives another path through the work: how the result answers the original commission, which evidence or failures changed the route, what grounds the final structure, which questions remain open, and what the actual checks returned. The user should be able to enter the work artifact from the report and trace the process and evidence back from the work artifact.
+A result may be delivered only after verification through its real use path: neither process files, nor an agent's completion claim, nor automated evaluation can substitute for the result itself or the user's judgment.
 
 </completion>
 
-**KL9 & GPT-5.6-Sol, 2026-07-16.**
+---
+
+1.0.0: KL9 & GPT-5.6-Sol, 2026-07-16
+1.0.1: KL9 & Kimi K3, 2026-07-21

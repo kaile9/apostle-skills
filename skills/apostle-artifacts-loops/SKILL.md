@@ -44,7 +44,11 @@ When the work is relatively complex, write `Roadmap.md` connecting several indep
 
 <artifacts intent="give the user and every agent the same readable, editable, recoverable objects">
 
-Before writing files to disk, inspect the workspace: project rules, existing plans, specifications, tests, version history, research notes, and prior results. Reuse an existing file when it can own the required responsibility, state that mapping, and align with the user in advance on whether each constraint is reused in the current task. Store large sources, raw tool output, and reproducible data by path or locator instead of copying content between files; load only what the next step requires; before reusing any artifact, check its inputs, version, and applicable scope — reuse what remains valid, redo only what has expired.
+Before writing files to disk, inspect the workspace: the code, then its AGENTS.md, project memory, README.md, project rules, existing plans, specifications, tests, version history, research notes, and prior results.
+
+AGENTS.md is the user's own: if a public project lacks one, remind the user to write it by hand; ask permission before changing it.
+
+Reuse an existing file when it can own the required responsibility, state that mapping, and align with the user in advance on whether each constraint is reused in the current task. Store large sources, raw tool output, and reproducible data by path or locator instead of copying content between files; load only what the next step requires; before reusing any artifact, check its inputs, version, and applicable scope — reuse what remains valid, redo only what has expired.
 
 Create the remaining artifacts only when the task truly needs them, and keep them updated in real time:
 
@@ -118,3 +122,4 @@ A result may be delivered only after verification through its real use path: nei
 
 1.0.0: KL9 & GPT-5.6-Sol, 2026-07-16
 1.0.1: KL9 & Kimi K3, 2026-07-21
+1.0.2: KL9 & Kimi K3, 2026-07-24

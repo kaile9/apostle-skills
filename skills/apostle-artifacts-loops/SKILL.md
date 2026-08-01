@@ -1,120 +1,112 @@
 ---
 name: apostle-artifacts-loops
-description: Long tasks, sub-agent, and multi-agent work — trigger preferentially as working discipline. Do not load for short or simple tasks (e.g., a few lines of code, or problems solvable without tool calls).
+description: Long tasks, sub-agent, and multi-agent work — durable artifacts, session handoff, execution graphs, and context discipline. Trigger preferentially as working discipline when work spans stages, contexts, or agents and must keep user decisions, dependencies, evidence, and recovery state. Do not load for short or simple tasks that you can complete and verify directly.
 disable-model-invocation: false
 license: AGPL-3.0-or-later
 ---
 
-> *Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.* — Antoine de Saint-Exupéry
+# Apostle Artifacts & Loops
 
----
+<identity intent="let long work survive sessions, agents, and failures, and keep only the structure the work needs">
 
-<identity intent="let long work survive context boundaries, agent replacement, user steering, and execution failure — through memory discipline, not process">
+This skill keeps long-term state in one **project spine**, organizes the work in an **execution graph** built on demand, and assembles the **smallest sufficient context** for each node. The structure serves the result. When you can complete and verify the work in the current session, or when existing files already carry these duties, reuse the existing structure and work directly.
 
-Long work spanning conversations, agents, compactions, or multi-/sub-agent collaboration requires **memory discipline** to sustain the process. This skill requires the agent to choose the best-practice form for itself, under the constraints of the user's purpose, the character of the work, existing project assets, the actual harness environment, and project preferences.
-
-**Zero-ref:** to save tokens, create or read no reference bundled with this skill.
+**Zero-ref.** This `SKILL.md` is the whole skill. Create or read no bundled reference, script, template, or asset. Evaluation and project material belong to the workspace, not to this skill.
 
 </identity>
 
-<exit-rule importance="highest" intent="keep directly doable work free of procedural cost">
+<zero-trust source="apostle-constitutio" intent="keep every judgment that can change the route or the result independently checkable">
 
-When the work can be completed and verified directly, or existing project files already carry the same responsibilities, or the skill has loaded but the task does not need it in whole or in part — explain why to the user in one sentence, then finish the work directly.
-
-</exit-rule>
-
-<zero-trust source="apostle-constitutio" intent="leave every judgment that can change the route or the result independently checkable">
-
-Do not over-trust existing local judgments, comments, or explanatory documents: every assertion must withstand independent verification. Keep work records for all work; preserve sources for information. On conflict, return to evidence, actual execution, or the user's judgment, and re-verify.
-
-Delegation transfers work, not responsibility. An agent's report is only what it believes happened; files on disk, primary sources, tool returns, and actual execution are the inspectable objects. When appropriate, exactingly demand cross-checks or multiple independent evaluations of the work's completion and quality.
+Delegation transfers work, not responsibility: an agent's report is only what it believes happened, so on conflict trust files on disk, primary sources, tool returns, and real execution — and re-verify.
 
 </zero-trust>
 
-<governing intent="give each scope of work exactly one governing object, matched to the kind of judgment the work permits">
+<spine intent="give the user and later sessions one stable, searchable project line">
 
-Align with the user on each body of work and create one goal Markdown: **Test** or **Objective**.
+Before you write files, read the workspace: its rules, existing plans, memory, deliverables, tests, versions, and research. Keep each fact in exactly one authoritative place.
 
-- Choose **Test**: completion has an observable state — tests, acceptance criteria, a quantity, a state change, or an explicit delivery can establish it. You may describe the Test/QA in a simple Markdown file, or write actual test code; for new projects, prefer recording only the required test items at first, and keep updating the items as the work proceeds.
-- Choose **Objective**: when the work can only be judged by the user.
+AGENTS.md is the user's own: it holds the project rules and the user preferences. If a public project does not have one, remind the user to write it by hand, and ask before you change it.
 
-When the work is relatively complex, write `Roadmap.md` connecting several independently constituted Tests and Objectives: clarify their order, dependencies, disagreements, and boundaries; record every node that requires alignment with the user; then present it structurally and visually.
+Align with the user on each body of work. When the goal has an observable end state, write it as a **Test**; when only the user can judge quality or direction, write it as an **Objective**; when an existing file can carry the goal, do not create a new goal file.
 
-</governing>
+Name the reader of each artifact. When the reader is an agent, use the most token-efficient form that keeps the facts; when the reader is the user, use the language and form that the user prefers.
 
-<artifacts intent="give the user and every agent the same readable, editable, recoverable objects">
+For complex work, use these artifacts as needed; none is mandatory:
 
-Before writing files to disk, inspect the workspace: the code, then its AGENTS.md, project memory, README.md, project rules, existing plans, specifications, tests, version history, research notes, and prior results.
+| Artifact | Sole duty | Update event |
+|---|---|---|
+| `Roadmap.md` | Current route, dependencies, relations, and progress; also the user's entry into the execution graph | Start, checkpoint close, dependency change, user re-decision, route change |
+| `Memo.md` | Searchable record of decisions, evidence, corrections, and checkpoint history | User reply, new decision, checkpoint close, evidence that overturns an old judgment |
+| `Handoff.md` | Short view that the next session needs to resume | Confirmed session change, compaction, or handoff; not for ordinary checkpoints |
+| Work artifacts | Code, prose, data, design, report, or real system returns | When the task itself requires them |
 
-AGENTS.md is the user's own: if a public project lacks one, remind the user to write it by hand; ask permission before changing it.
+Keep this table at the top of `Roadmap.md`:
 
-Reuse an existing file when it can own the required responsibility, state that mapping, and align with the user in advance on whether each constraint is reused in the current task. Store large sources, raw tool output, and reproducible data by path or locator instead of copying content between files; load only what the next step requires; before reusing any artifact, check its inputs, version, and applicable scope — reuse what remains valid, redo only what has expired.
+| Suggested order | Content | Depends on | Related | Progress |
+|---:|---|---|---|---|
+| 1 | Current work unit | None | Test / Objective / decision or artifact ID | pending / in progress / blocked / awaits user / done / cancelled |
 
-Create the remaining artifacts only when the task truly needs them, and keep them updated in real time:
+The table is the default execution graph. Write a separate graph artifact only when non-linear dependencies, parallel joins, or retries cannot be expressed clearly in the table. The order is advice, not a promised schedule. When the user changes scope or stop conditions, run `KEEP / ADD / DROP`: keep the goals that are still valid, add the new obligations, and drop the replaced ones. Do not pile mutually replacing requirements into a larger project.
 
-| Artifact | Sole responsibility |
-|---|---|
-| `Plan.md` | Reader: the user. Replaces the ToDo tool; shows in real time the agent's chosen route and progress. Rewrite on rerouting, scope expansion, or newly inserted tasks; record the reason in the Memo. |
-| `Memo.md` | Reader: agents. Discipline in the memory section; keeps long-horizon work attention-friendly. |
-| `Deliverable.md` | Reader: agents. Carries the code, prose, data, design, report, test results, or external-system returns the work actually requires. |
-| `Report.md` | Reader: the user. When the logical relations are relatively complex, write Markdown in place of a final conversational walkthrough of the results, and reply to the user with a brief summary. |
+Before you update any artifact, read it back to see its newest state.
 
-A filename and its first lines should state what the file holds and what deserves attention now. Files read repeatedly use stable terms, short definitions, and compact structure. When the default reader is an agent, transmit information in the most token-efficient form — for example, concepts plus expressions in Lean for logical relations; Classical Chinese / Buddhist Hybrid Chinese stripped of modal particles as body text; Emoji, Grug-speak, or modal particles in place of lengthy annotations — keeping only code, professional terminology, and necessary citations in their original form.
-When the default reader is the user, deliver the final account in the expressions and language the user prefers.
+</spine>
 
-Prefer one principal artifact per body of work. Markdown by default; a final deliverable that is user-facing, typesetting-sensitive, rich in inserts, and no longer meant for continuing agent work may use Word or HTML (as the user prefers).
+<memory intent="keep long history traceable without forcing every session to reread it">
 
-The user may steer through conversation or by editing an artifact directly; keep a modification record for every artifact. When updating Plan or Memo, read the file back into context first; before any joint that can change the route or the result, reread the relevant files as well — including ones the user has just edited.
+The top of `Memo.md` holds a rewritable outline: current goal, phase, next action, blocks, decision index, and checkpoint index. The body appends records under stable IDs. When new evidence overturns an old judgment, append a correction that names what it replaces; never rewrite history without a trace. Rewrite or merge old entries only when the user asks, and leave a note that describes the change.
 
-</artifacts>
+Three moments oblige a write: before you report to the user (save the state, results, and open questions first), after user feedback arrives, and when a new artifact changes the route. At a decision point that can change scope, route, standards, authorization, priority, or stop conditions, record the user's words verbatim: a speculation, a suggestion, a factual claim, and an authorization are not interchangeable. At each checkpoint, record what is done, where the evidence is, what is open, the next action, and the related decisions. Do not log ordinary conversation or every tool call.
 
-<loop intent="loop until the Goal is met; let environmental feedback move the work, not a prescribed sequence">
-
-Loop until the Goal is met: read the smallest sufficient state → choose an action that may change the result, evidence, uncertainty, or verification → execute or delegate → revise from feedback → save changes worth carrying across context boundaries. Two canonical shapes: divide the work into chunks and solve them step by step; or Darwinian / annealing generate—test—select. The loop's scale, order, parallelism, and method are the current agent's choice; they have no standing apart from the result.
-
-Progress counts as inspectable change: a new artifact, new evidence, an eliminated hypothesis, an advanced verification, a plan rewritten because of evidence. Tool-call counts, text volume, and self-declared progress do not count. Repeating the same ineffective action → change route. Sustained activity with no new inspectable change → restate the question or supply the missing information. Time, tokens, and money are budgets: record exhaustion as a budget limit; never rename it completion.
-
-Terminate when: a Test passes its real check; an Objective reaches the review point agreed with the user; the user makes a judgment that belongs to the bearer of consequences; a concrete block arises; or further work can no longer reasonably change the result. Save the state needed for recovery before ending, and verify the result through its real use path.
-
-</loop>
-
-<memory intent="carry experience across context boundaries without mistaking memory for truth">
-
-**When to write.** Three moments oblige a Memo write, without exception:
-
-1. **Before reporting to the user** — first save to disk the state, results, and open questions you are about to report; then compose the report;
-2. **After receiving user feedback** — record the feedback briefly in the Memo, noting its source and force (a speculation, suggestion, factual claim, and authorization are not interchangeable);
-3. **When the route changes because of a new artifact** — rewrite the Plan, and record the reason and the evidence's location in the Memo.
-
-Important lessons, discoveries, or other valuable material that does not belong in the Plan or a reporting artifact may be written into the Memo at any time, unbound by the moments above.
-
-Reporting is long work's natural metronome: saving before every report is equivalent to checkpointing before context compaction.
-
-**What to record.** The Memo is a MemoryBook shared by the user and agents. Record promptly any observations, hypotheses, questions, relations, decisions, evidence locations, failures, conflicts, and limits that may affect later work. Unverified material may remain, but its wording or a small label must disclose its nature. Do not log every tool call; preserve only what may change recovery, route, judgment, delegation, or result.
-
-**History is append-only by default.** Append discoveries; append corrections when an earlier judgment is overturned; append user steering with its source. Never silently delete, merge, or rewrite an earlier entry. Edit history only at the user's request or with the user's permission, and leave a note describing the intervention.
-
-**The checkpoint is the recovery entry.** The Memo may append a current-state checkpoint without replacing earlier ones. On recovery, read the most recent relevant state first, then retrieve earlier entries and primary material by keyword, path, and locator — the whole history need not enter context on every loop. Keep the Memo compact: it is the most frequently read file.
+On a new project, a new session, or insufficient memory, read the outline and the Roadmap first, then pull the records and primary material by ID, keyword, and locator. Widen the read only when the index is insufficient, records conflict, or the task needs a global migration. The disk holds the history, retrieval selects the material, and the current context holds only this round's judgment.
 
 </memory>
 
-<agents intent="make commissioned output attributable and checkable, and let isolated work meet through artifacts on disk">
+<handoff intent="resume a session from a minimal recovery package without copying the authorities">
 
-Every commissioned agent receives a single-use identifier: `<stage>-<task>-<role>-<ordinal>/<retry>` (e.g. `jp-lit-translator-21/0` — number 21, first attempt), appearing in the name of every artifact it owns. A retry increments the retry number and starts a new file set; it never overwrites the previous one. When the orchestration spans multiple rounds or many sub-agents, first write `swarm.md`: compress stage/task/role into single-token codes, and register the commissions issued, the results returned, and the orchestration rules, for the user's review. Every artifact must be attributable to one unique commissioned instance.
+`Handoff.md` is a one-time recovery entry at a session boundary, not a new authority for history or plans. It holds only: the current goal and baseline, **the single next action that the user specified**, the one block or risk that would change that action, active nodes or processes, changed files, real check results, and precise locators into the Roadmap, the Memo, and the source material. Do not insert your own preparation steps before the user-specified next action, and do not copy whole authority files.
 
-Sub-agent implementations differ across harnesses, and so does the form of inter-agent information transfer; adjust the content of `{id}-Agent.md` and the orchestration structure to the actual implementation. For example: Kimi Code's AgentSwarm fans out homogeneous agents from a single template over an items array, aggregates after one barrier, and retries via `resume_agent_ids` — suited to homogeneous batches; the identifier's `task` differences land on the items, and a `stage` corresponds to two successive Swarm calls. Claude Code's Workflow orchestrates heterogeneous nodes from a script, with barriered parallel or per-item pipeline stages, and per-node model tiers and output schemas — the stages in `swarm.md` map to its phases, and `role` differences land on each node's commission file. Under either form, the rules of identifier, attribution, and no-overwrite-on-retry do not change.
+The successor resumes from the Handoff first. It reads the Roadmap, the Memo, and the sources by locator only when the action requires it, the snapshot is stale, or contents conflict. On conflict, fresh reads and real execution win: append a correction in the Memo, and update or retire the old Handoff.
 
-The parent writes only the commission file `{id}-Agent.md`, arranged from background to command, with importance rising toward the end: Context (current state, required reading, reusable results, known failures) → Persona (who this agent is for the present work, and the position from which it judges) → Boundaries (what it does not own, which files it may not change, when it must stop or report a block) → Artifact (delivery path and format, evidence requirements, the real check) → Goal (exactly one, placed last, as the highest commission). The commission must be concise and self-contained; do not pass the parent's context to the sub-agent by default — restate genuinely binding elements as explicit facts under Context or Boundaries.
+</handoff>
 
-After reading the commission, the agent opens files for its own Plan and Memo, saving as sections complete; for long work, create the destination file first and write section by section — never defer every disk write to the end. Return paths, state, and the brief explanation needed to use them. The design intends the parent to read only `Plan.md` and `Deliverable.md` after the sub-agent returns, consulting `Memo.md` or other artifacts only when needed, to minimize context.
+<graph intent="let task relations decide the collaboration topology, and make every node attributable, recoverable, and joinable">
 
-Agents may work in parallel, in sequence, as mutual checks, or in any structure the harness supports; avoid concurrent writes to one authoritative file; assign the synthesis of conflicts to a named agent.
+Graph engineering first defines the work units, the meaning of each edge, and the file that owns each state, then picks an implementation. Use the simplest sufficient shape: one node; fan-out / fan-in for independent work; a DAG for known dependencies; a bounded supervisor or event graph only when later tasks truly depend on facts found at run time. Deterministic scheduling carries the known routes; agents carry only the nodes that need judgment.
 
-</agents>
+Give each persistent node a one-line contract: `ID | goal | depends_on | reads@version | sole writes | owner | done check | budget/stop`. Add `continues / spawns / critiques / synthesizes / verifies / retries` only when needed, and never use a meaningless `related_to`. A transient node with no files of its own needs no artifact; the task record of the runtime is enough. A retry gets a new ID that points at the old node.
 
-<completion intent="final authority belongs to the delivered artifacts, not the process that made them">
+A commissioned agent runs this same skill in single-session mode: it reads this `SKILL.md` again, then keeps its own spine, memory, and loop for its scope. Each commissioned agent gets a single-use identifier `<stage>-<task>-<role>-<ordinal>/<retry>` (for example `jp-lit-translator-21/0`) in the name of every artifact it owns; a retry increments the retry number and starts a new file set, and never overwrites the old one. The commission file states the goal, the boundaries, the inputs by locator, the output contract, and the real check — concise and self-contained, without the parent context. After the agent returns, read its plan and its deliverable; open its memo only when needed.
 
-A result may be delivered only after verification through its real use path: neither process files, nor an agent's completion claim, nor automated evaluation can substitute for the result itself or the user's judgment.
+One authoritative file has one writer at a time; parallel nodes write separate artifacts, and a named node joins them. A node can extend the graph only within its granted scope, capabilities, budget, and stop conditions, and it records the new nodes and edges before they take effect. Record failure, cancellation, timeout, and results that arrive after their join as states. Before a fan-in, list the expected nodes and check for missing, duplicate, out-of-scope, version-drifted, and broken-dependency results. The parent reviews the artifacts on disk before it closes a node.
+
+</graph>
+
+<context intent="give each node only the material it needs and is allowed to use">
+
+Context engineering assembles the smallest sufficient material for a session or node; it does not copy the parent session, the whole Memo, or a shared directory. Selection order: **permissions and write boundaries → version, validity, and replacement relations → task relevance → diversity and budget**. Do not recall restricted, expired, or irrelevant material and then ask the node to ignore it.
+
+A node gets: its goal and graph position, the valid decisions and boundaries, the paths, versions, and locators of the authoritative inputs, its tools and write domain, the existing results, the open questions, the output contract, and the real checks. Pass locators for large material. Summaries, retrieval results, and Handoffs are derived views that can expire; they do not replace the sources. Keep a source, a paraphrase, an inference, and a user ruling distinguishable. Only publication, security, migration, concurrent writes, or reproducible experiments add extra records: transformations applied, material excluded, budgets, and checksums. When material is insufficient, return the gap; do not guess to fill it.
+
+</context>
+
+<loop intent="let observable feedback keep changing the work, not sustain activity">
+
+Loop: read the smallest sufficient state → choose an action that can change the result, the evidence, the uncertainty, or the verification status → execute or delegate → check the feedback → update the work artifacts, the Roadmap, and the Memo or Handoff as needed. Two proven shapes: split the work into parts and finish them in sequence, or generate, test, and select in rounds. Progress must leave an inspectable change; call counts, text volume, file counts, and self-declared progress do not count. When an action keeps failing, change the route. When a budget runs out, record the exhaustion as a limit, never as completion.
+
+Stop when: a Test passes its real check; an Objective reaches the review point agreed with the user; the user makes a judgment that belongs to the bearer of the consequences; a concrete block appears; or more work cannot reasonably change the result. The scope and stop conditions that the user gives override the default artifacts and loop of this skill.
+
+</loop>
+
+<verification intent="make a passing check mean the defect is absent">
+
+Before you claim completion, confirm that the check would fail if the defect it claims to prevent were present. When the work has branches or two-way mechanisms, verify every meaningful path. Verify the final artifact through its real use path. Keep tool returns, agent reports, source material, your own inferences, and the user's judgment distinguishable.
+
+</verification>
+
+<completion intent="let the deliverable be the end, and let the control files retire">
+
+At completion, close or mark every active node, set the final state in the Roadmap and the last checkpoint in the Memo, retire the Handoff or point it only at explicit unfinished work, and deliver the real artifacts that the task required, with their actual check results. No process file, graph complexity, or evaluator score replaces the result or the user's judgment.
 
 </completion>
 
@@ -123,3 +115,4 @@ A result may be delivered only after verification through its real use path: nei
 1.0.0: KL9 & GPT-5.6-Sol, 2026-07-16
 1.0.1: KL9 & Kimi K3, 2026-07-21
 1.0.2: KL9 & Kimi K3, 2026-07-24
+0.1.3: KL9 & K3, 2026-08-01
